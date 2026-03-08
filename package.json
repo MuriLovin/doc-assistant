@@ -3,7 +3,7 @@
   "publisher": "murilovin",
   "displayName": "Doc Assistant",
   "description": "Generates commit messages with AI via an OpenAI-compatible API in VS Code's Source Control.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "icon": "resources/icon.png",
   "engines": {
