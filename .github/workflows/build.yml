@@ -1,4 +1,4 @@
-name: Publish VS Code Marketplace
+name: Build VSIX
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ on:
       - "v*"
 
 jobs:
-  publish:
+  build-vsix:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,7 +28,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Publish extension
-        env:
-          VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        run: pnpm run publish:vscode
+      - name: Build VSIX
+        run: pnpm run package:vsix
+
+      - name: Upload VSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: doc-assistant-vsix
+          path: "*.vsix"
+          if-no-files-found: error
