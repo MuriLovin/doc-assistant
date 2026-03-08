@@ -12,6 +12,9 @@
   "activationEvents": [
     "onView:scm"
   ],
+  "repository": {
+    "url": "https://github.com/MuriLovin/doc-assistant"
+  },
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
