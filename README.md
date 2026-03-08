@@ -1,5 +1,4 @@
 # Doc Assistant
-[![CI](https://github.com/MuriLovin/doc-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/MuriLovin/doc-assistant/actions/workflows/ci.yml)
 
 VS Code extension to generate commit messages using AI.
 
@@ -52,10 +51,10 @@ Examples:
 - Export only the module factory (and only required public types)
 
 5. Register the module factory in:
-- [src/modules/index.ts](./src/modules/index.ts)
+- [src/modules/index.ts](https://github.com/MuriLovin/doc-assistant/blob/main/src/modules/index.ts)
 - Include `new <NewModule>ModuleFactory(context)` in `createExtensionModuleFactories(...)`
 
-No change is required in [extension-lifecycle.ts](./src/platform/vscode/extension-lifecycle.ts) for each new module.
+No change is required in [extension-lifecycle.ts](https://github.com/MuriLovin/doc-assistant/blob/main/src/platform/vscode/extension-lifecycle.ts) for each new module.
 
 ## How to Add a New Command to an Existing Module
 
