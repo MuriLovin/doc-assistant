@@ -1,0 +1,1 @@
+export { CommitMessageModuleFactory } from './commitMessageModuleFactory';
