@@ -35,12 +35,6 @@
           "group": "navigation@100"
         }
       ],
-      "scm/inputBox": [
-        {
-          "command": "doc-assistant.generateCommitMessage",
-          "group": "navigation"
-        }
-      ],
       "commandPalette": [
         {
           "command": "doc-assistant.generateCommitMessage"
