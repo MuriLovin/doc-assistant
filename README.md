@@ -1,4 +1,5 @@
 # Doc Assistant
+[![CI](https://github.com/MuriLovin/doc-assistant/actions/workflows/ci.yml/badge.svg)](https://github.com/MuriLovin/doc-assistant/actions/workflows/ci.yml)
 
 VS Code extension to generate commit messages using AI.
 
