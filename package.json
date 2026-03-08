@@ -1,8 +1,11 @@
 {
   "name": "doc-assistant",
+  "publisher": "murilovin",
   "displayName": "Doc Assistant",
   "description": "Generates commit messages with AI via an OpenAI-compatible API in VS Code's Source Control.",
   "version": "0.0.2",
+  "license": "MIT",
+  "icon": "resources/icon.png",
   "engines": {
     "vscode": "^1.109.0"
   },
@@ -14,6 +17,10 @@
   ],
   "repository": {
     "url": "https://github.com/MuriLovin/doc-assistant"
+  },
+  "homepage": "https://github.com/MuriLovin/doc-assistant#readme",
+  "bugs": {
+    "url": "https://github.com/MuriLovin/doc-assistant/issues"
   },
   "main": "./out/extension.js",
   "contributes": {
@@ -75,7 +82,9 @@
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src",
     "test": "node --test out/test/commit-message.test.js",
-    "test:e2e": "vscode-test"
+    "test:e2e": "vscode-test",
+    "package:vsix": "pnpm run compile && pnpm dlx @vscode/vsce package --no-dependencies",
+    "publish:vscode": "pnpm run compile && pnpm dlx @vscode/vsce publish --no-dependencies"
   },
   "devDependencies": {
     "@types/vscode": "^1.109.0",
