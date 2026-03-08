@@ -19,8 +19,8 @@
         "command": "doc-assistant.generateCommitMessage",
         "title": "Doc Assistant: Generate Commit Message",
         "icon": {
-          "light": "resources/light/commit-ai.svg",
-          "dark": "resources/dark/commit-ai.svg"
+          "light": "resources/light/commit-ai.png",
+          "dark": "resources/dark/commit-ai.png"
         }
       },
       {
