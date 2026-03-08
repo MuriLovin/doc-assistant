@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import { ExtensionModule } from '../../core/contracts/extensionModule';
-import { ExtensionModuleFactory } from '../../core/contracts/extensionModuleFactory';
+import { ExtensionModule } from '../../core/contracts/extension-module';
+import { ExtensionModuleFactory } from '../../core/contracts/extension-module-factory';
 import {
 	VsCodeCommandRegistrationAdapter,
 	VsCodeCommitInputGateway,
@@ -8,13 +8,13 @@ import {
 	VsCodeUiGateway,
 	VsCodeWorkspaceGateway,
 } from '../../platform/vscode/adapters/index';
-import { ConfigureOpenAIUseCase } from './application/configureOpenAI';
-import { GenerateCommitMessageUseCase } from './application/generateCommitMessage';
-import { GitCliDiffReader } from './infrastructure/gitCliDiffReader';
-import { OpenAiCommitMessageClient } from './infrastructure/openAiCommitMessageClient';
-import { CommitMessageModule } from './commitMessageModule';
-import { ConfigureOpenAICommand } from './presentation/configureOpenAICommand';
-import { GenerateCommitMessageCommand } from './presentation/generateCommitMessageCommand';
+import { ConfigureOpenAIUseCase } from './application/configure-openai';
+import { GenerateCommitMessageUseCase } from './application/generate-commit-message';
+import { GitCliDiffReader } from './infrastructure/git-cli-diff-reader';
+import { OpenAiCommitMessageClient } from './infrastructure/open-ai-commit-message-client';
+import { CommitMessageModule } from './commit-message-module';
+import { ConfigureOpenAICommand } from './presentation/configure-openai-command';
+import { GenerateCommitMessageCommand } from './presentation/generate-commit-message-command';
 
 export class CommitMessageModuleFactory implements ExtensionModuleFactory {
 	constructor(private readonly context: vscode.ExtensionContext) {}

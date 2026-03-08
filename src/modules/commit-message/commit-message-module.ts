@@ -1,5 +1,5 @@
-import { ExtensionCommand } from '../../core/contracts/extensionCommand';
-import { ExtensionModule } from '../../core/contracts/extensionModule';
+import { ExtensionCommand } from '../../core/contracts/extension-command';
+import { ExtensionModule } from '../../core/contracts/extension-module';
 
 export class CommitMessageModule implements ExtensionModule {
 	constructor(private readonly commands: ExtensionCommand[]) {}

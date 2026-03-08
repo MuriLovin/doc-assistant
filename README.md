@@ -16,6 +16,19 @@ Each module should follow:
 - `infrastructure/`
 - `presentation/`
 
+## File Naming Convention
+
+All files under `src` must follow:
+
+- Lowercase only
+- Use `-` for compound names (`kebab-case`)
+
+Examples:
+
+- `commit-message-module-factory.ts`
+- `extension-module-factory.ts`
+- `command-registration-adapter.ts`
+
 ## How to Add a New Module
 
 1. Create module folders:
@@ -24,11 +37,11 @@ Each module should follow:
 - `src/modules/<new-module>/presentation`
 
 2. Implement the module class implementing `ExtensionModule`:
-- Example: `src/modules/<new-module>/<newModule>Module.ts`
+- Example: `src/modules/<new-module>/<new-module>-module.ts`
 - It should receive commands (or registrars) and call `register()` in `activate()`.
 
 3. Implement the factory class in a separate file:
-- `src/modules/<new-module>/<newModule>ModuleFactory.ts`
+- `src/modules/<new-module>/<new-module>-module-factory.ts`
 - Implement `ExtensionModuleFactory`
 - Build all module dependencies inside `create()`
 - If needed, instantiate VS Code adapters inside this factory
@@ -41,7 +54,7 @@ Each module should follow:
 - [src/modules/index.ts](./src/modules/index.ts)
 - Include `new <NewModule>ModuleFactory(context)` in `createExtensionModuleFactories(...)`
 
-No change is required in [extensionLifecycle.ts](./src/platform/vscode/extensionLifecycle.ts) for each new module.
+No change is required in [extension-lifecycle.ts](./src/platform/vscode/extension-lifecycle.ts) for each new module.
 
 ## How to Add a New Command to an Existing Module
 

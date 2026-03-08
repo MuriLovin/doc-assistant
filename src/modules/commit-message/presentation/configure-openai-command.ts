@@ -1,7 +1,7 @@
-import { CommandRegistrationAdapter } from '../../../core/contracts/commandRegistrationAdapter';
-import { ExtensionCommand } from '../../../core/contracts/extensionCommand';
+import { CommandRegistrationAdapter } from '../../../core/contracts/command-registration-adapter';
+import { ExtensionCommand } from '../../../core/contracts/extension-command';
 import { UiGateway } from '../application/contracts';
-import { ConfigureOpenAIUseCase } from '../application/configureOpenAI';
+import { ConfigureOpenAIUseCase } from '../application/configure-openai';
 
 export class ConfigureOpenAICommand implements ExtensionCommand {
 	constructor(

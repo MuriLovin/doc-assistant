@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import { ExtensionModule } from '../../core/contracts/extensionModule';
-import { ExtensionModuleFactory } from '../../core/contracts/extensionModuleFactory';
+import { ExtensionModule } from '../../core/contracts/extension-module';
+import { ExtensionModuleFactory } from '../../core/contracts/extension-module-factory';
 import { createExtensionModuleFactories } from '../../modules';
 
 export function activate(context: vscode.ExtensionContext): void {

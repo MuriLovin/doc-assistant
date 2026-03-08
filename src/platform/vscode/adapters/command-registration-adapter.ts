@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { CommandRegistrationAdapter } from '../../../core/contracts/commandRegistrationAdapter';
+import { CommandRegistrationAdapter } from '../../../core/contracts/command-registration-adapter';
 
 export class VsCodeCommandRegistrationAdapter implements CommandRegistrationAdapter {
 	constructor(private readonly context: vscode.ExtensionContext) {}

@@ -1,1 +1,1 @@
-export { CommitMessageModuleFactory } from './commitMessageModuleFactory';
+export { CommitMessageModuleFactory } from './commit-message-module-factory';

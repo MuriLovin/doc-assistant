@@ -7,7 +7,7 @@ import {
 	UiGateway,
 	WorkspaceGateway,
 } from './contracts';
-import { ConfigureOpenAIUseCase } from './configureOpenAI';
+import { ConfigureOpenAIUseCase } from './configure-openai';
 
 export class GenerateCommitMessageUseCase {
 	constructor(

@@ -1,5 +1,5 @@
-export { VsCodeUiGateway } from './uiGateway';
-export { VsCodeSettingsGateway } from './settingsGateway';
-export { VsCodeWorkspaceGateway } from './workspaceGateway';
-export { VsCodeCommitInputGateway } from './commitInputGateway';
-export { VsCodeCommandRegistrationAdapter } from './commandRegistrationAdapter';
+export { VsCodeUiGateway } from './ui-gateway';
+export { VsCodeSettingsGateway } from './settings-gateway';
+export { VsCodeWorkspaceGateway } from './workspace-gateway';
+export { VsCodeCommitInputGateway } from './commit-input-gateway';
+export { VsCodeCommandRegistrationAdapter } from './command-registration-adapter';

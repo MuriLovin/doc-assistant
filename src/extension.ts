@@ -1,1 +1,1 @@
-export { activate, deactivate } from './platform/vscode/extensionLifecycle';
+export { activate, deactivate } from './platform/vscode/extension-lifecycle';
