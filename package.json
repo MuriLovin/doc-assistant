@@ -1,0 +1,92 @@
+{
+  "name": "doc-assistant",
+  "displayName": "Doc Assistant",
+  "description": "Generates commit messages with AI via an OpenAI-compatible API in VS Code's Source Control.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:scm"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "doc-assistant.generateCommitMessage",
+        "title": "Doc Assistant: Generate Commit Message",
+        "icon": {
+          "light": "resources/light/commit-ai.svg",
+          "dark": "resources/dark/commit-ai.svg"
+        }
+      },
+      {
+        "command": "doc-assistant.configureOpenAI",
+        "title": "Doc Assistant: Configure OpenAI"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "doc-assistant.generateCommitMessage",
+          "group": "navigation@100"
+        }
+      ],
+      "scm/inputBox": [
+        {
+          "command": "doc-assistant.generateCommitMessage",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "doc-assistant.generateCommitMessage"
+        },
+        {
+          "command": "doc-assistant.configureOpenAI"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Doc Assistant",
+      "properties": {
+        "docAssistant.openaiBaseUrl": {
+          "type": "string",
+          "default": "https://api.openai.com/v1",
+          "description": "Base URL for an OpenAI-compatible API."
+        },
+        "docAssistant.openaiModel": {
+          "type": "string",
+          "default": "gpt-4o-mini",
+          "description": "Model used to generate commit messages."
+        }
+      }
+    }
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.109.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.56.1",
+    "eslint": "^9.39.3",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
