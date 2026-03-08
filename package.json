@@ -77,7 +77,8 @@
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "node --test out/test/commit-message.test.js",
+    "test:e2e": "vscode-test"
   },
   "devDependencies": {
     "@types/vscode": "^1.109.0",
