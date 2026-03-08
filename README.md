@@ -68,3 +68,14 @@ No change is required in [extension-lifecycle.ts](https://github.com/MuriLovin/d
 
 - Compile: `pnpm run compile`
 - Lint: `pnpm run lint`
+
+## Publish (VS Code Marketplace)
+
+1. Generate VSIX:
+- `pnpm run package:vsix`
+
+2. Publish to VS Code Marketplace:
+- Create a publisher in Visual Studio Marketplace.
+- Generate a Personal Access Token (PAT) with Marketplace publish permission.
+- Export token in shell: `export VSCE_PAT=<your-token>`
+- Publish: `pnpm run publish:vscode`
