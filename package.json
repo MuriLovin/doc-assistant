@@ -2,7 +2,7 @@
   "name": "doc-assistant",
   "displayName": "Doc Assistant",
   "description": "Generates commit messages with AI via an OpenAI-compatible API in VS Code's Source Control.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.109.0"
   },
