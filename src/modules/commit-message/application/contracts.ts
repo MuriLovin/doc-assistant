@@ -2,6 +2,9 @@ export type OpenAISettings = {
 	baseUrl: string;
 	model: string;
 	apiKey: string;
+	maxTokens: number;
+	temperature: number;
+	requestTimeoutMs: number;
 };
 
 export type InputOptions = {
@@ -23,8 +26,14 @@ export interface UiGateway {
 export interface SettingsGateway {
 	getBaseUrl(): string;
 	getModel(): string;
+	getMaxTokens(): number;
+	getTemperature(): number;
+	getRequestTimeoutMs(): number;
 	setBaseUrl(value: string): Promise<void>;
 	setModel(value: string): Promise<void>;
+	setMaxTokens(value: number): Promise<void>;
+	setTemperature(value: number): Promise<void>;
+	setRequestTimeoutMs(value: number): Promise<void>;
 	getApiKey(): Promise<string>;
 	setApiKey(value: string): Promise<void>;
 }
@@ -42,5 +51,14 @@ export interface GitDiffReader {
 }
 
 export interface CommitMessageAiClient {
-	generateCommitMessage(settings: OpenAISettings, diff: string): Promise<string>;
+	generateCommitMessage(
+		settings: OpenAISettings,
+		diff: string,
+		options?: { onProgress?: (message: string) => void },
+	): Promise<string>;
+}
+
+export interface PromptBuilderProvider {
+	buildSystemPrompt(): Promise<string>;
+	buildUserPrompt(input: string): Promise<string>;
 }

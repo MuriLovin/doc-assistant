@@ -40,7 +40,9 @@ export class GenerateCommitMessageUseCase {
 			}
 
 			report('Generating commit message with OpenAI...');
-			const message = await this.aiClient.generateCommitMessage(openAISettings, diff);
+			const message = await this.aiClient.generateCommitMessage(openAISettings, diff, {
+				onProgress: (message) => report(message),
+			});
 			if (!message) {
 				this.ui.showError('Could not generate a commit message.');
 				return;
@@ -54,14 +56,17 @@ export class GenerateCommitMessageUseCase {
 	private async resolveSettings(): Promise<OpenAISettings | null> {
 		const baseUrl = this.settings.getBaseUrl().trim();
 		const model = this.settings.getModel().trim();
+		const maxTokens = this.settings.getMaxTokens();
+		const temperature = this.settings.getTemperature();
+		const requestTimeoutMs = this.settings.getRequestTimeoutMs();
 		const apiKey = (await this.settings.getApiKey()).trim();
 
-		if (baseUrl && model && apiKey) {
-			return { baseUrl, model, apiKey };
+		if (baseUrl && model && apiKey && maxTokens > 0 && requestTimeoutMs > 0) {
+			return { baseUrl, model, apiKey, maxTokens, temperature, requestTimeoutMs };
 		}
 
 		const selection = await this.ui.showInfo(
-			'Configure base URL, model, and API key to generate commit messages with OpenAI.',
+			'Configure base URL, model, max tokens, temperature, request timeout, and API key to generate commit messages with OpenAI.',
 			'Configure now',
 		);
 		if (selection !== 'Configure now') {
@@ -75,8 +80,11 @@ export class GenerateCommitMessageUseCase {
 
 		const updatedBaseUrl = this.settings.getBaseUrl().trim();
 		const updatedModel = this.settings.getModel().trim();
+		const updatedMaxTokens = this.settings.getMaxTokens();
+		const updatedTemperature = this.settings.getTemperature();
+		const updatedRequestTimeoutMs = this.settings.getRequestTimeoutMs();
 		const updatedApiKey = (await this.settings.getApiKey()).trim();
-		if (!updatedBaseUrl || !updatedModel || !updatedApiKey) {
+		if (!updatedBaseUrl || !updatedModel || !updatedApiKey || updatedMaxTokens <= 0 || updatedRequestTimeoutMs <= 0) {
 			return null;
 		}
 
@@ -84,6 +92,9 @@ export class GenerateCommitMessageUseCase {
 			baseUrl: updatedBaseUrl,
 			model: updatedModel,
 			apiKey: updatedApiKey,
+			maxTokens: updatedMaxTokens,
+			temperature: updatedTemperature,
+			requestTimeoutMs: updatedRequestTimeoutMs,
 		};
 	}
 }

@@ -17,6 +17,8 @@ export class GenerateCommitMessageCommand implements ExtensionCommand {
 			} catch (error) {
 				const details = error instanceof Error ? error.message : String(error);
 				this.ui.showError(`Error generating commit message with AI: ${details}`);
+
+                console.error('Doc assistant - Error details:', error);
 			}
 		});
 	}
