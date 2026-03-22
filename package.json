@@ -3,7 +3,7 @@
   "publisher": "murilovin",
   "displayName": "Doc Assistant",
   "description": "Generates commit messages with AI via an OpenAI-compatible API in VS Code's Source Control.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "icon": "resources/icon.png",
   "engines": {
@@ -66,6 +66,27 @@
           "type": "string",
           "default": "gpt-4o-mini",
           "description": "Model used to generate commit messages."
+        },
+        "docAssistant.openaiMaxTokens": {
+          "type": "number",
+          "default": 256,
+          "minimum": 1,
+          "maximum": 8192,
+          "description": "Maximum output tokens used when generating commit messages."
+        },
+        "docAssistant.openaiTemperature": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "maximum": 2,
+          "description": "Sampling temperature used when generating commit messages."
+        },
+        "docAssistant.openaiRequestTimeoutMs": {
+          "type": "number",
+          "default": 120000,
+          "minimum": 1000,
+          "maximum": 900000,
+          "description": "Request timeout in milliseconds for OpenAI-compatible calls."
         }
       }
     }
